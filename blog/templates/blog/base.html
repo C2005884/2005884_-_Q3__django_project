@@ -18,7 +18,26 @@
     {% if user.is_authenticated %}
     <a href="{% url 'blog:post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
     {% endif %}
-    <h1><a href="{% url 'blog:post_list' %}">HYWU Blog</a></h1>
+    <h1><a href="{% url 'blog:post_list' %}">PythonWebProgramming</a></h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="">BLOG</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'polls:index' %}">Polls <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'bookmark:list' %}">Bookmark <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'blog:post_list' %}">Blog <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+    </nav>
 </div>
 
 <div class="content container">

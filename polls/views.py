@@ -23,27 +23,11 @@ class ResultView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
 
-    # return HttpResponse("Hello,world. You're at the polls index.")
-    #latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    # output = ', '.join(q.question_text for q in latest_question_list)
-    # return HttpResponse(output)
-    #template = loader.get_template('polls/index.html')
-    #context = {
-    #    'latest_question_list': latest_question_list,
-    #}
-    # return HttpResponse(template.render(context, request))
-    #return render(request, 'polls/index.html', context)
+class AllresultsView(generic.ListView):
+    model = Question
+    template_name = 'polls/allresults.html'
+    context_object_name = 'latest_question_list'
 
-#def detail(request, question_id):
-    # return HttpResponse("You're looking at question %s." % question_id)
-    #question = get_object_or_404(Question, pk=question_id)
-    #return render(request, 'polls/detail.html', {'question':question})
-
-#def results(request, question_id):
-    #response = HttpResponse("You're looking at the results of question %s." % question_id)
-    #return response
-    #question = get_object_or_404(Question, pk=question_id)
-    #return render(request, 'polls/results.html', {'question': question})
 
 def vote(request, question_id):
     # return HttpResponse("You're voting on question %s." % question_id)
@@ -61,3 +45,4 @@ def vote(request, question_id):
         selected_choice.save()
 
         return HttpResponseRedirect(reverse('polls:results', args=(question_id,)))
+
